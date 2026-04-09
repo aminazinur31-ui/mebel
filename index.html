@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pietra di mebel — Премиальные столы и стулья</title>
   <meta name="description" content="Pietra di mebel — премиальная мебель на заказ: столы, стулья, мрамор, керамогранит, шпон и ткани. Современный luxury-сайт с каталогом и формой заявки." />
-  <style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
     :root{
       --bg:#0f0d0b;
       --bg-2:#171411;
@@ -27,6 +30,7 @@
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
+      font-family:'Inter', sans-serif;
       margin:0;
       font-family:Arial, Helvetica, sans-serif;
       background:linear-gradient(180deg,#0c0a09 0%, #14100d 100%);
@@ -166,9 +170,10 @@
       width:100%;
       padding:120px 0 70px;
       display:grid;
-      grid-template-columns:1.12fr .88fr;
-      gap:28px;
-      align-items:end;
+      grid-template-columns:1fr;
+      gap:40px;
+      align-items:center;
+      text-align:center;
     }
     .eyebrow{
       display:inline-flex;
@@ -187,6 +192,7 @@
       box-shadow:0 0 14px rgba(224,192,138,.7);
     }
     h1{
+      font-family:'Playfair Display', serif;
       margin:0 0 18px;
       font-size:clamp(42px, 7vw, 88px);
       line-height:.95;
@@ -194,14 +200,15 @@
       max-width:10ch;
     }
     .hero-text p{
-      max-width:670px;
+      max-width:720px;
+      margin:0 auto 28px;
       color:var(--muted);
       font-size:18px;
-      margin:0 0 28px;
     }
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
+      justify-content:center;
       gap:12px;
       margin-bottom:30px;
     }
@@ -210,6 +217,7 @@
       grid-template-columns:repeat(3, minmax(120px, 1fr));
       gap:14px;
       max-width:700px;
+      margin:0 auto;
     }
     .stat{
       padding:18px;

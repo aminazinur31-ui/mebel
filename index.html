@@ -3,1102 +3,1149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ATELIER TABLE & CHAIR — столы и стулья на заказ</title>
-  <meta name="description" content="Индивидуальное изготовление столов и стульев на заказ. Мрамор, искусственный камень, керамогранит, шпон . Срок изготовления от 7 дней." />
+  <title>Pietra di mebel — Премиальные столы и стулья</title>
+  <meta name="description" content="Pietra di mebel — премиальная мебель на заказ: столы, стулья, мрамор, керамогранит, шпон и ткани. Современный luxury-сайт с каталогом и формой заявки." />
   <style>
-    :root {
-      --bg: #f6f3ec;
-      --bg-soft: #efeae0;
-      --card: rgba(255,255,255,0.72);
-      --line: rgba(0,0,0,0.08);
-      --text: #2b2b2b;
-      --muted: #6e6a63;
-      --muted-2: #9c978f;
-      --accent: #2b2b2b;
-      --accent-light: #e6ded0;
-      --success: #3f7c5d;
-      --warning: #b08a3c;
-      --radius: 24px;
-      --shadow: 0 20px 40px rgba(0,0,0,0.08);
+    :root{
+      --bg:#0f0d0b;
+      --bg-2:#171411;
+      --card:#1d1814;
+      --soft:#241f19;
+      --line:rgba(255,255,255,.08);
+      --text:#f5efe6;
+      --muted:#c9bba8;
+      --beige:#d7c1a2;
+      --milk:#f3eadf;
+      --gold:#b89158;
+      --gold-2:#e0c08a;
+      --shadow:0 20px 60px rgba(0,0,0,.45);
+      --radius:24px;
+      --radius-sm:18px;
+      --container:1280px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Inter, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#0c0a09 0%, #14100d 100%);
+      color:var(--text);
+      line-height:1.5;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button,input,textarea,select{font:inherit}
+
+    .container{
+      width:min(calc(100% - 32px), var(--container));
+      margin:0 auto;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button, input, select, textarea { font: inherit; }
-
-    .container {
-      width: min(1200px, calc(100% - 32px));
-      margin: 0 auto;
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
+      background:rgba(12,10,9,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:16px 0;
+    }
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:max-content;
+    }
+    .logo-mark{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      border:1px solid rgba(224,192,138,.35);
+      background:linear-gradient(135deg, rgba(184,145,88,.25), rgba(255,255,255,.05));
+      display:grid;
+      place-items:center;
+      color:var(--gold-2);
+      font-weight:700;
+      letter-spacing:.08em;
+      box-shadow:0 10px 30px rgba(184,145,88,.18);
+    }
+    .logo-text strong{
+      display:block;
+      font-size:15px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .logo-text span{
+      font-size:12px;
+      color:var(--muted);
     }
 
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(246,243,236,0.9);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+    .menu{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .menu a{transition:.25s ease}
+    .menu a:hover{color:var(--milk)}
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
 
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 16px 0;
+    .btn{
+      border:none;
+      cursor:pointer;
+      transition:.3s ease;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 22px;
+      border-radius:999px;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg, var(--gold), var(--gold-2));
+      color:#18120d;
+      box-shadow:0 12px 32px rgba(184,145,88,.28);
+    }
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--milk);
+      border:1px solid rgba(224,192,138,.35);
+    }
+    .btn-outline:hover{
+      background:rgba(224,192,138,.09);
+      border-color:rgba(224,192,138,.6);
     }
 
-    .brand-small {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
-      color: var(--muted-2);
-      margin-bottom: 4px;
+    .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
     }
-
-    .brand-title {
-      font-size: 28px;
-      font-weight: 700;
+    .hero video{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:.22;
     }
-
-    .nav {
-      display: flex;
-      gap: 24px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav a:hover { color: var(--text); }
-
-    .btn {
-      border: none;
-      border-radius: 18px;
-      padding: 14px 20px;
-      cursor: pointer;
-      transition: 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .btn-primary:hover { opacity: 0.92; }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-
-    .btn-outline:hover { background: rgba(255,255,255,0.5); }
-
-    .hero {
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
       background:
-        radial-gradient(circle at top right, rgba(255,255,255,0.65), transparent 28%),
-        radial-gradient(circle at bottom left, rgba(230,222,208,0.45), transparent 22%),
-        var(--bg);
+        linear-gradient(90deg, rgba(11,9,8,.92) 0%, rgba(11,9,8,.72) 44%, rgba(11,9,8,.45) 100%),
+        radial-gradient(circle at 75% 30%, rgba(184,145,88,.18), transparent 28%);
+    }
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding:120px 0 70px;
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:28px;
+      align-items:end;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(224,192,138,.22);
+      color:var(--beige);
+      background:rgba(255,255,255,.03);
+      margin-bottom:18px;
+      font-size:13px;
+    }
+    .dot{
+      width:8px;height:8px;border-radius:50%;background:var(--gold-2);
+      box-shadow:0 0 14px rgba(224,192,138,.7);
+    }
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(42px, 7vw, 88px);
+      line-height:.95;
+      letter-spacing:-.04em;
+      max-width:10ch;
+    }
+    .hero-text p{
+      max-width:670px;
+      color:var(--muted);
+      font-size:18px;
+      margin:0 0 28px;
+    }
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:30px;
+    }
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(120px, 1fr));
+      gap:14px;
+      max-width:700px;
+    }
+    .stat{
+      padding:18px;
+      border-radius:20px;
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      backdrop-filter:blur(10px);
+    }
+    .stat strong{
+      display:block;
+      font-size:24px;
+      margin-bottom:6px;
+      color:var(--milk);
+    }
+    .stat span{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 40px;
-      align-items: center;
-      padding: 72px 0;
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.09);
+      box-shadow:var(--shadow);
+      border-radius:32px;
+      padding:22px;
+      backdrop-filter:blur(14px);
+    }
+    .hero-card h3{margin:0 0 6px;font-size:24px}
+    .hero-card > p{margin:0 0 18px;color:var(--muted)}
+    .mini-video{
+      height:220px;
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      margin-bottom:16px;
+      background:#000;
+    }
+    .mini-video video{width:100%;height:100%;object-fit:cover;opacity:.75}
+    .hero-form{
+      display:grid;
+      gap:12px;
+    }
+    .field,
+    .hero-form textarea,
+    .hero-form select{
+      width:100%;
+      padding:15px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.05);
+      color:var(--milk);
+      outline:none;
+      transition:.25s ease;
+    }
+    .field:focus,
+    .hero-form textarea:focus,
+    .hero-form select:focus{
+      border-color:rgba(224,192,138,.5);
+      background:rgba(255,255,255,.07);
+    }
+    .hero-form textarea{resize:vertical;min-height:90px}
+
+    section{padding:92px 0}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:24px;
+      margin-bottom:28px;
+    }
+    .section-head h2{
+      margin:0 0 8px;
+      font-size:clamp(30px,4vw,52px);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+    .section-head p{
+      margin:0;
+      max-width:700px;
+      color:var(--muted);
+      font-size:17px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 10px 16px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.55);
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 18px;
+    .about-grid,
+    .services-grid,
+    .advantages-grid,
+    .review-grid,
+    .faq-grid,
+    .contacts-grid,
+    .materials-grid,
+    .catalog-grid{
+      display:grid;
+      gap:18px;
     }
 
-    h1 {
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1.05;
-      margin: 0;
+    .about-grid{grid-template-columns:1fr 1fr}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      transition:.35s ease;
+    }
+    .card:hover{
+      transform:translateY(-5px);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border-color:rgba(224,192,138,.18);
+    }
+    .card h3{margin:0 0 12px;font-size:24px}
+    .card p{margin:0;color:var(--muted)}
+
+    .about-image{
+      min-height:420px;
+      border-radius:var(--radius);
+      overflow:hidden;
+      position:relative;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+    }
+    .about-image::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.5));
+    }
+    .about-overlay{
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      z-index:2;
+      background:rgba(15,13,11,.62);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:20px;
+      padding:18px;
+      max-width:320px;
+    }
+    .about-overlay strong{display:block;font-size:28px;margin-bottom:6px}
+    .about-overlay span{color:var(--muted)}
+
+    .services-grid{grid-template-columns:repeat(3,1fr)}
+    .icon{
+      width:56px;height:56px;border-radius:18px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg, rgba(184,145,88,.26), rgba(255,255,255,.05));
+      border:1px solid rgba(224,192,138,.18);
+      color:var(--gold-2);
+      font-size:24px;
+      margin-bottom:18px;
     }
 
-    .hero p {
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 640px;
-      margin: 22px 0 0;
+    .catalog-toolbar{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:22px;
+    }
+    .filter-btn{
+      padding:12px 18px;
+      border-radius:999px;
+      border:1px solid rgba(224,192,138,.18);
+      background:rgba(255,255,255,.03);
+      color:var(--milk);
+      cursor:pointer;
+      transition:.25s ease;
+    }
+    .filter-btn:hover,
+    .filter-btn.active{
+      background:linear-gradient(135deg, rgba(184,145,88,.28), rgba(224,192,138,.12));
+      border-color:rgba(224,192,138,.5);
+      color:#fff;
     }
 
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
+    .catalog-grid{grid-template-columns:repeat(3, 1fr)}
+    .product-card{
+      overflow:hidden;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+    }
+    .product-media{
+      position:relative;
+      height:280px;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+    }
+    .product-media img{
+      width:100%;height:100%;object-fit:cover;
+      transition:transform .55s ease;
+    }
+    .product-card:hover .product-media img{transform:scale(1.08)}
+    .product-badge{
+      position:absolute;
+      top:16px;left:16px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(15,13,11,.78);
+      border:1px solid rgba(224,192,138,.24);
+      color:var(--gold-2);
+      font-size:12px;
+    }
+    .product-body{padding:22px}
+    .product-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:start;
+      margin-bottom:10px;
+    }
+    .product-top h3{margin:0;font-size:22px}
+    .price{
+      color:var(--gold-2);
+      font-weight:700;
+      white-space:nowrap;
+      font-size:18px;
+    }
+    .product-body p{color:var(--muted);margin:0 0 16px}
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+    .meta span{
+      font-size:12px;
+      color:var(--beige);
+      border:1px solid rgba(224,192,138,.16);
+      background:rgba(255,255,255,.03);
+      padding:8px 10px;
+      border-radius:999px;
+    }
+    .product-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+    .materials-grid{grid-template-columns:repeat(5,1fr)}
+    .material-card{
+      min-height:160px;
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:end;
+      padding:18px;
+      background:#1a1512;
+    }
+    .material-card img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.52;
+      transition:.4s ease;
+    }
+    .material-card:hover img{transform:scale(1.08);opacity:.68}
+    .material-card::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.7));
+    }
+    .material-card strong{position:relative;z-index:2;font-size:20px}
+
+    .advantages-grid{grid-template-columns:repeat(4,1fr)}
+    .adv-number{
+      font-size:42px;
+      color:rgba(224,192,138,.4);
+      font-weight:700;
+      line-height:1;
+      margin-bottom:14px;
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 34px;
+    .review-grid{grid-template-columns:repeat(3,1fr)}
+    .stars{color:var(--gold-2);margin-bottom:14px;letter-spacing:.15em}
+    .review-author{margin-top:16px;color:var(--beige);font-weight:700}
+
+    .faq-grid{grid-template-columns:1fr 1fr}
+    .faq-item details{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px 20px;
+      transition:.3s ease;
+    }
+    .faq-item details:hover{border-color:rgba(224,192,138,.2)}
+    .faq-item summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:700;
+      position:relative;
+      padding-right:26px;
+    }
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{
+      content:'+';
+      position:absolute;
+      right:0;top:0;
+      color:var(--gold-2);
+      font-size:22px;
+      line-height:1;
+    }
+    .faq-item details[open] summary::after{content:'−'}
+    .faq-item p{margin:14px 0 0;color:var(--muted)}
+
+    .contact-banner{
+      padding:34px;
+      border-radius:32px;
+      background:linear-gradient(135deg, rgba(184,145,88,.14), rgba(255,255,255,.04));
+      border:1px solid rgba(224,192,138,.18);
+      margin-bottom:26px;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .contact-banner h3{margin:0 0 8px;font-size:30px}
+    .contact-banner p{margin:0;color:var(--muted)}
+
+    .contacts-grid{grid-template-columns:1fr .95fr}
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+    .contact-row{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      padding:16px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .contact-row span{color:var(--muted)}
+    .contact-row strong{font-size:18px}
+
+    .form-grid{display:grid;gap:12px}
+    .form-grid .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .form-grid input,
+    .form-grid textarea,
+    .form-grid select{
+      width:100%;
+      padding:15px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.05);
+      color:var(--milk);
+      outline:none;
+      transition:.25s ease;
+    }
+    .form-grid input:focus,
+    .form-grid textarea:focus,
+    .form-grid select:focus{
+      border-color:rgba(224,192,138,.5);
+      background:rgba(255,255,255,.07);
+    }
+    .form-grid textarea{min-height:130px;resize:vertical}
+    .note{font-size:13px;color:var(--muted)}
+
+    footer{
+      padding:30px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+    }
+    .footer-inner{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:14px;
+      align-items:center;
     }
 
-    .stat-card, .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .reveal{
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
-    .stat-card { padding: 18px; }
-    .stat-value { font-size: 28px; font-weight: 700; }
-    .stat-label { color: var(--muted); font-size: 14px; margin-top: 6px; }
-
-    .hero-image-wrap {
-      background: rgba(255,255,255,0.5);
-      border: 1px solid var(--line);
-      border-radius: 34px;
-      padding: 12px;
-      box-shadow: var(--shadow);
+    @media (max-width: 1180px){
+      .hero-inner,
+      .about-grid,
+      .contacts-grid{grid-template-columns:1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .catalog-grid{grid-template-columns:repeat(2,1fr)}
+      .materials-grid{grid-template-columns:repeat(3,1fr)}
+      .advantages-grid{grid-template-columns:repeat(2,1fr)}
+      .review-grid{grid-template-columns:repeat(2,1fr)}
+      .faq-grid{grid-template-columns:1fr}
+      h1{max-width:12ch}
     }
 
-    .hero-image {
-      height: 580px;
-      width: 100%;
-      object-fit: cover;
-      border-radius: 26px;
-    }
-
-    .section { padding: 72px 0; }
-
-    .section.alt {
-      background: var(--bg-soft);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .section-kicker {
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
-      font-size: 12px;
-      color: var(--muted-2);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(30px, 4vw, 46px);
-      margin: 0;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      margin-top: 14px;
-      max-width: 820px;
-    }
-
-    .grid-4, .grid-3, .grid-2 {
-      display: grid;
-      gap: 20px;
-      margin-top: 30px;
-    }
-
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-
-    .card { padding: 24px; }
-
-    .icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: var(--accent-light);
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      font-size: 22px;
-    }
-
-    .filters {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 14px;
-      margin-top: 26px;
-      padding: 16px;
-      background: rgba(255,255,255,0.55);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-    }
-
-    .input, .select, .textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.86);
-      color: var(--text);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 14px 16px;
-      outline: none;
-    }
-
-    .textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .catalog-head {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 28px;
-    }
-
-    .product-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .product-image {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-
-    .product-body { padding: 22px; }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 14px;
-    }
-
-    .tag {
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-light);
-      font-size: 12px;
-      color: var(--text);
-    }
-
-    .stock {
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      white-space: nowrap;
-      color: #fff;
-    }
-
-    .stock.in { background: var(--success); }
-    .stock.order { background: var(--warning); }
-
-    .muted { color: var(--muted); }
-    .muted-2 { color: var(--muted-2); }
-
-    .product-top, .row-between {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .specs {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .price {
-      font-size: 28px;
-      font-weight: 700;
-    }
-
-    .product-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 18px;
-      flex-wrap: wrap;
-    }
-
-    .mini-card, .step-card, .compare-item, .cart-item, .bundle-item, .material-item, .contact-box {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-    }
-
-    .faq-item + .faq-item { margin-top: 14px; }
-
-    .cart-list, .compare-list { margin-top: 18px; display: grid; gap: 12px; }
-
-    .empty {
-      padding: 18px;
-      border: 1px dashed var(--line);
-      border-radius: 20px;
-      color: var(--muted-2);
-      background: rgba(255,255,255,0.35);
-    }
-
-    .total-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      font-size: 18px;
-    }
-
-    .footer {
-      border-top: 1px solid var(--line);
-      padding: 28px 0;
-      color: var(--muted-2);
-      font-size: 14px;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid, .grid-4, .grid-3, .grid-2, .products, .filters {
-        grid-template-columns: 1fr 1fr;
-      }
-      .nav { display: none; }
-    }
-
-    @media (max-width: 760px) {
-      .hero-grid, .grid-4, .grid-3, .grid-2, .products, .filters, .hero-stats {
-        grid-template-columns: 1fr;
-      }
-      .catalog-head, .header-inner, .row-between, .product-top, .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero-image { height: 360px; }
-      .brand-title { font-size: 22px; }
-      .section { padding: 56px 0; }
+    @media (max-width: 860px){
+      .menu{display:none}
+      .nav{padding:14px 0}
+      .hero{min-height:auto}
+      .hero-inner{padding:100px 0 52px}
+      .hero-stats{grid-template-columns:1fr}
+      .services-grid,
+      .catalog-grid,
+      .materials-grid,
+      .advantages-grid,
+      .review-grid{grid-template-columns:1fr}
+      .contact-banner,
+      .section-head,
+      .footer-inner{display:block}
+      .form-grid .row{grid-template-columns:1fr}
+      .nav-actions .btn-outline{display:none}
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container header-inner">
-      <div>
-        <div class="brand-small">Custom Furniture Atelier</div>
-        <div class="brand-title">ATELIER TABLE & CHAIR</div>
-      </div>
+  <div class="topbar">
+    <div class="container nav">
+      <a class="logo" href="#home">
+        <div class="logo-mark">PM</div>
+        <div class="logo-text">
+          <strong>Pietra di mebel</strong>
+          <span>Premium furniture & materials</span>
+        </div>
+      </a>
 
-      <nav class="nav">
+      <nav class="menu">
         <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#catalog">Каталог</a>
         <a href="#materials">Материалы</a>
-        <a href="#catalog">Модели</a>
-        <a href="#process">Как работаем</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
         <a href="#contacts">Контакты</a>
       </nav>
 
-      <button class="btn btn-primary" id="cartOpenBtn">Избранное / корзина (<span id="cartCount">0</span>)</button>
+      <div class="nav-actions">
+        <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+        <a class="btn btn-primary" href="#request">Оставить заявку</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero" id="home">
+    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80">
+      <source src="https://cdn.coverr.co/videos/coverr-modern-living-room-1560676029608?download=1080p" type="video/mp4">
+    </video>
+
+    <div class="container hero-inner">
+      <div class="hero-text reveal visible">
+        <div class="eyebrow"><span class="dot"></span> Премиальные столы и стулья под ваш интерьер</div>
+        <h1>Мебель, которая выглядит как искусство</h1>
+        <p>
+          Pietra di mebel — мебель премиум-сегмента с акцентом на мрамор, керамогранит, шпон и ткани.
+          Создаём столы и стулья, которые подчеркивают статус пространства, продают эстетику и остаются удобными в повседневной жизни.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalog">Смотреть каталог</a>
+          <a class="btn btn-outline" href="#request">Рассчитать проект</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>от 7 дней</strong>
+            <span>срок изготовления отдельных моделей</span>
+          </div>
+          <div class="stat">
+            <strong>Premium</strong>
+            <span>индивидуальное производство под клиента</span>
+          </div>
+          <div class="stat">
+            <strong>5+ материалов</strong>
+            <span>мрамор, шпон, ткани, керамогранит и другое</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <h3>Быстрая заявка</h3>
+        <p>Оставьте контакты — мы подберём стол, стулья и материалы под ваш интерьер.</p>
+
+        <div class="mini-video">
+          <video autoplay muted loop playsinline>
+            <source src="https://cdn.coverr.co/videos/coverr-designer-chooses-materials-1562233146714?download=1080p" type="video/mp4">
+          </video>
+        </div>
+
+        <form class="hero-form">
+          <input class="field" type="text" placeholder="Ваше имя" />
+          <input class="field" type="tel" placeholder="Телефон" />
+          <select>
+            <option>Что вас интересует?</option>
+            <option>Стол</option>
+            <option>Стулья</option>
+            <option>Полный комплект</option>
+            <option>Подбор материалов</option>
+          </select>
+          <textarea placeholder="Опишите пожелания: размеры, цвет, материал, стиль"></textarea>
+          <button class="btn btn-primary" type="button">Отправить заявку</button>
+        </form>
+      </div>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge">Столы и стулья на заказ по вашим размерам, дизайну и предпочтениям</div>
-        <h1>Изготавливаем мебель, которая создается именно под ваш интерьер</h1>
-        <p>
-          Мы делаем столы и стулья индивидуально на заказ. Работаем с натуральным мрамором, искусственным камнем, керамогранитом и шпоном Pietra di Mebel. Наше преимущество — сложные материалы, персональный подход и сроки производства от 7 дней.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#request">Оставить заявку</a>
-          <a class="btn btn-outline" href="#catalog">Смотреть модели</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat-card">
-            <div class="stat-value">от 7 дней</div>
-            <div class="stat-label">срок изготовления</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">4 материала</div>
-            <div class="stat-label">премиальные поверхности</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">100%</div>
-            <div class="stat-label">индивидуальный подход</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-image-wrap">
-        <img class="hero-image" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" alt="Столы и стулья на заказ" />
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="about">
+  <section id="about">
     <div class="container">
-      <div class="section-kicker">О компании</div>
-      <h2 class="section-title">Не просто мебельный магазин, а производство мебели под заказ</h2>
-      <p class="section-subtitle">
-        Мы создаем столы и стулья по индивидуальным параметрам клиента: размеры, форма, цвет, материал и общее настроение изделия. Клиент получает не типовую мебель, а решение, которое точно подходит его дому, квартире, офису или проекту дизайнера.
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="icon-box">🪑</div>
-          <h3>Индивидуальное производство</h3>
-          <p class="muted">Каждое изделие адаптируется под запрос клиента: размеры, высота, посадка, форма столешницы, основание и отделка.</p>
-        </div>
-        <div class="card">
-          <div class="icon-box">🪨</div>
-          <h3>Работаем с мрамором</h3>
-          <p class="muted">Многие компании не берутся за мрамор. Мы умеем работать со сложными и премиальными материалами.</p>
-        </div>
-        <div class="card">
-          <div class="icon-box">⏱️</div>
-          <h3>Срок от 7 дней</h3>
-          <p class="muted">Быстрое изготовление помогает клиенту не ждать месяцами и быстрее завершать интерьер или объект.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="materials">
-    <div class="container">
-      <div class="section-kicker">Материалы</div>
-      <h2 class="section-title">Премиальные материалы, с которыми мы работаем</h2>
-      <div class="grid-4">
-        <div class="material-item">
-          <div class="tag">Премиум</div>
-          <h3>Натуральный мрамор</h3>
-          <p class="muted">Уникальный рисунок, дорогой внешний вид и статусный акцент в интерьере.</p>
-        </div>
-        <div class="material-item">
-          <div class="tag">Практичность</div>
-          <h3>Искусственный камень</h3>
-          <p class="muted">Надежное и эстетичное решение для ежедневного использования.</p>
-        </div>
-        <div class="material-item">
-          <div class="tag">Современность</div>
-          <h3>Керамогранит</h3>
-          <p class="muted">Высокая износостойкость, современный вид и удобство в уходе.</p>
-        </div>
-        <div class="material-item">
-          <div class="tag">Дизайн</div>
-          <h3>Шпон Pietra di Mebel</h3>
-          <p class="muted">Выразительная фактура и эффектная каменная эстетика в современном исполнении.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section alt" id="catalog">
-    <div class="container">
-      <div class="catalog-head">
+      <div class="section-head reveal">
         <div>
-          <div class="section-kicker">Модели и вдохновение</div>
-          <h2 class="section-title">Выберите основу для вашего индивидуального заказа</h2>
-          <p class="section-subtitle">Ниже представлены модели для вдохновения. Любую из них можно изменить по размерам, материалу, форме и отделке.</p>
+          <h2>О компании</h2>
+          <p>Мы создаём мебель, которая сочетает функциональность, архитектурную выразительность и дорогие фактуры. Для нас важно не просто продать изделие, а собрать цельный визуальный образ вашего интерьера.</p>
         </div>
-        <div class="muted">Найдено моделей: <span id="foundCount">0</span></div>
       </div>
 
-      <div class="filters">
-        <input class="input" id="searchInput" type="text" placeholder="Поиск по модели, описанию или тегам" />
+      <div class="about-grid">
+        <div class="card reveal">
+          <h3>Pietra di mebel</h3>
+          <p>
+            Мы специализируемся на изготовлении столов и стульев премиум-сегмента. Наше преимущество — работа с материалами, за которые берутся не все: мрамор, керамогранит, шпон, дизайнерские ткани и сложные текстуры.
+            Мы разрабатываем решения для квартиры, дома, офиса, ресторана и статусных коммерческих пространств.
+          </p>
+          <br>
+          <p>
+            Каждый проект можно адаптировать по размеру, форме, оттенку, опорам, фактуре поверхности и деталям. Поэтому сайт ориентирован не только на продажу готовых моделей, но и на получение заявок на индивидуальное производство.
+          </p>
+        </div>
 
-        <select class="select" id="categoryFilter">
-          <option value="Все">Все</option>
-          <option value="Столы">Столы</option>
-          <option value="Стулья">Стулья</option>
-        </select>
-
-        <select class="select" id="materialFilter">
-          <option value="Все">Все материалы</option>
-        </select>
-
-        <select class="select" id="styleFilter">
-          <option value="Все">Все стили</option>
-        </select>
+        <div class="about-image reveal">
+          <div class="about-overlay">
+            <strong>Luxury detail</strong>
+            <span>Индивидуальные решения для интерьеров, где важны стиль, статус и комфорт.</span>
+          </div>
+        </div>
       </div>
-
-      <div class="products" id="productsGrid"></div>
     </div>
   </section>
 
-  <section class="section" id="advantages">
+  <section id="services">
     <div class="container">
-      <div class="grid-2">
-        <div class="card">
-          <div class="section-kicker">Подбор размера</div>
-          <h2 class="section-title">Помогаем понять, какой стол подойдет именно вам</h2>
-          <p class="section-subtitle">Эта функция уменьшает сомнения клиента и помогает определить комфортный формат стола под площадь помещения и количество мест.</p>
-
-          <div class="grid-2" style="margin-top:22px;">
-            <div>
-              <label class="muted" for="roomArea">Площадь комнаты, м²</label>
-              <input class="input" id="roomArea" type="number" placeholder="Например, 14" />
-            </div>
-            <div>
-              <label class="muted" for="seatCount">Сколько мест нужно</label>
-              <input class="input" id="seatCount" type="number" placeholder="Например, 4" />
-            </div>
-          </div>
-
-          <div class="mini-card" id="sizeRecommendation" style="margin-top:18px; color:#555;">
-            Заполните поля, чтобы получить рекомендацию по размеру и формату стола.
-          </div>
+      <div class="section-head reveal">
+        <div>
+          <h2>Услуги</h2>
+          <p>Сайт презентует не только ассортимент, но и формат работы с клиентом: от подбора модели до согласования материалов и финального заказа.</p>
         </div>
+      </div>
 
-        <div class="card">
-          <div class="section-kicker">Готовые сочетания</div>
-          <h2 class="section-title">Часто выбирают вместе</h2>
-          <div style="margin-top:22px; display:grid; gap:12px;">
-            <div class="bundle-item">
-              <strong>Nord Oak + Milo Soft ×4</strong>
-              <p class="muted">Теплое и универсальное сочетание для кухни или столовой.</p>
-            </div>
-            <div class="bundle-item">
-              <strong>Linea Stone + Aura Sand ×6</strong>
-              <p class="muted">Премиальный комплект для светлого современного интерьера.</p>
-            </div>
-            <div class="bundle-item">
-              <strong>Urban Round + Forma Black ×4</strong>
-              <p class="muted">Компактное решение для квартиры, офиса или лаунж-пространства.</p>
-            </div>
-          </div>
-        </div>
+      <div class="services-grid">
+        <article class="card reveal">
+          <div class="icon">✦</div>
+          <h3>Индивидуальное изготовление</h3>
+          <p>Производим столы и стулья под размеры, интерьер, стиль и пожелания клиента. Можно менять форму, материал, опоры, ткань и отделку.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="icon">◈</div>
+          <h3>Подбор материалов</h3>
+          <p>Подбираем мрамор, керамогранит, шпон и ткани так, чтобы мебель выглядела дорого и гармонично сочеталась с пространством.</p>
+        </article>
+
+        <article class="card reveal">
+          <div class="icon">☷</div>
+          <h3>Комплектация интерьера</h3>
+          <p>Помогаем собрать комплект для обеденной зоны, кухни, гостиной, переговорной или коммерческого пространства в едином стиле.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section alt" id="process">
-    <div class="container grid-2">
-      <div class="card">
-        <div class="section-kicker">Сравнение моделей</div>
-        <h2 class="section-title">Сравните до 3 вариантов перед заказом</h2>
-        <p class="section-subtitle">Функция сравнения помогает клиенту легче принять решение, особенно когда выбирается между разными материалами и стилями.</p>
-        <div class="compare-list" id="compareList">
-          <div class="empty">Выберите товары в каталоге, чтобы увидеть сравнение по цене, материалу, стилю и размеру.</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="section-kicker">Как мы работаем</div>
-        <h2 class="section-title">Понятный процесс от заявки до готовой мебели</h2>
-        <div style="margin-top:24px; display:grid; gap:14px;">
-          <div class="step-card"><strong>1.</strong> Вы оставляете заявку и рассказываете, что хотите.</div>
-          <div class="step-card"><strong>2.</strong> Мы обсуждаем размеры, форму, материал и стиль изделия.</div>
-          <div class="step-card"><strong>3.</strong> Подбираем оптимальное решение под интерьер и бюджет.</div>
-          <div class="step-card"><strong>4.</strong> Запускаем производство. Срок изготовления — от 7 дней.</div>
-          <div class="step-card"><strong>5.</strong> Организуем доставку и передаем готовое изделие клиенту.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="trust">
+  <section id="catalog">
     <div class="container">
-      <div class="section-kicker">Почему нам доверяют</div>
-      <h2 class="section-title">Сайт должен не только показывать мебель, но и вызывать чувство надежности</h2>
-      <div class="grid-4">
-        <div class="card"><div class="icon-box">✔</div><h3>Индивидуальный подход</h3><p class="muted">Мы не продаем типовые позиции, а создаем мебель под клиента.</p></div>
-        <div class="card"><div class="icon-box">✔</div><h3>Премиальные материалы</h3><p class="muted">Натуральный мрамор, искусственный камень, керамогранит и Pietra di Mebel.</p></div>
-        <div class="card"><div class="icon-box">✔</div><h3>Четкие сроки</h3><p class="muted">Производство от 7 дней — это одно из наших ключевых преимуществ.</p></div>
-        <div class="card"><div class="icon-box">✔</div><h3>Прозрачная коммуникация</h3><p class="muted">Консультация, расчет, сопровождение и помощь на каждом этапе.</p></div>
+      <div class="section-head reveal">
+        <div>
+          <h2>Каталог</h2>
+          <p>Каталог построен с фильтрацией по категориям. Сейчас данные временные, но структура уже готова для реального наполнения товарами.</p>
+        </div>
+      </div>
+
+      <div class="catalog-toolbar reveal">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="table">Столы</button>
+        <button class="filter-btn" data-filter="chair">Стулья</button>
+        <button class="filter-btn" data-filter="marble">Мрамор</button>
+        <button class="filter-btn" data-filter="wood">Шпон</button>
+        <button class="filter-btn" data-filter="porcelain">Керамогранит</button>
+        <button class="filter-btn" data-filter="fabric">Ткани</button>
+      </div>
+
+      <div class="catalog-grid" id="catalogGrid">
+        <article class="card product-card reveal" data-category="table marble">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Стол Pietra Nero">
+            <span class="product-badge">Премиум стол</span>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>Pietra Nero</h3>
+              <div class="price">от 780 000 ₸</div>
+            </div>
+            <p>Обеденный стол с выразительной каменной столешницей и акцентным основанием для современных интерьеров.</p>
+            <div class="meta">
+              <span>Мрамор</span>
+              <span>Индивидуальный размер</span>
+              <span>Luxury</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#request">Заказать</a>
+              <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card product-card reveal" data-category="chair fabric">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1519947486511-46149fa0a254?auto=format&fit=crop&w=1200&q=80" alt="Стул Milano Soft">
+            <span class="product-badge">Премиальный стул</span>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>Milano Soft</h3>
+              <div class="price">от 185 000 ₸</div>
+            </div>
+            <p>Мягкий стул с дорогой посадкой, эргономичной спинкой и тактильной тканью для обеденной группы.</p>
+            <div class="meta">
+              <span>Ткань</span>
+              <span>Мягкая спинка</span>
+              <span>Бежевые оттенки</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#request">Заказать</a>
+              <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card product-card reveal" data-category="table porcelain">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1200&q=80" alt="Стол Venezia Stone">
+            <span class="product-badge">Керамогранит</span>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>Venezia Stone</h3>
+              <div class="price">от 690 000 ₸</div>
+            </div>
+            <p>Стол с эффектной столешницей из керамогранита — визуально легкий, практичный и дорогой по восприятию.</p>
+            <div class="meta">
+              <span>Керамогранит</span>
+              <span>Современный дизайн</span>
+              <span>Под заказ</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#request">Заказать</a>
+              <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card product-card reveal" data-category="wood">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80" alt="Шпон Walnut Select">
+            <span class="product-badge">Материал</span>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>Walnut Select</h3>
+              <div class="price">от 95 000 ₸</div>
+            </div>
+            <p>Шпон тёплого орехового оттенка для мебели с глубокой и дорогой фактурой древесины.</p>
+            <div class="meta">
+              <span>Шпон</span>
+              <span>Орех</span>
+              <span>Премиум текстура</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#request">Выбрать</a>
+              <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card product-card reveal" data-category="marble">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Мрамор Calacatta Luxe">
+            <span class="product-badge">Натуральный камень</span>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>Calacatta Luxe</h3>
+              <div class="price">от 210 000 ₸</div>
+            </div>
+            <p>Выразительный мрамор со светлой базой и контрастным рисунком для статусных интерьеров.</p>
+            <div class="meta">
+              <span>Мрамор</span>
+              <span>Светлая палитра</span>
+              <span>Luxury mood</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#request">Выбрать</a>
+              <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card product-card reveal" data-category="fabric chair">
+          <div class="product-media">
+            <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=1200&q=80" alt="Стул Siena Gold">
+            <span class="product-badge">Акцентный стул</span>
+          </div>
+          <div class="product-body">
+            <div class="product-top">
+              <h3>Siena Gold</h3>
+              <div class="price">от 220 000 ₸</div>
+            </div>
+            <p>Стул с благородной геометрией и металлическими акцентами, который делает интерьер визуально дороже.</p>
+            <div class="meta">
+              <span>Ткань</span>
+              <span>Металл</span>
+              <span>Премиум сегмент</span>
+            </div>
+            <div class="product-actions">
+              <a class="btn btn-primary" href="#request">Заказать</a>
+              <a class="btn btn-outline" href="https://wa.me/77000000000" target="_blank">WhatsApp</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section alt" id="reviews">
+  <section id="materials">
     <div class="container">
-      <div class="section-kicker">Отзывы</div>
-      <h2 class="section-title">Отзывы, которые усиливают доверие</h2>
+      <div class="section-head reveal">
+        <div>
+          <h2>Материалы</h2>
+          <p>Отдельный блок для выбора фактур и поверхностей. Его можно дальше превратить в полноценный конфигуратор материалов.</p>
+        </div>
+      </div>
 
-      <div class="grid-3">
-        <div class="card">
-          <div>★★★★★</div>
-          <p class="muted">“Очень понравилось, что можно было изменить размеры под нашу кухню. В итоге стол встал идеально.”</p>
-          <strong>Алина, Астана</strong>
-        </div>
-        <div class="card">
-          <div>★★★★★</div>
-          <p class="muted">“Редко кто работает с мрамором, а здесь все объяснили, подобрали и сделали быстро.”</p>
-          <strong>Руслан, Алматы</strong>
-        </div>
-        <div class="card">
-          <div>★★★★★</div>
-          <p class="muted">“Понравилось, что сайт помогает выбрать модель, но при этом все можно адаптировать под себя.”</p>
-          <strong>Марина, Шымкент</strong>
-        </div>
+      <div class="materials-grid">
+        <article class="card material-card reveal">
+          <img src="https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1000&q=80" alt="Мрамор">
+          <strong>Мрамор</strong>
+        </article>
+        <article class="card material-card reveal">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Керамогранит">
+          <strong>Керамогранит</strong>
+        </article>
+        <article class="card material-card reveal">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="Шпон">
+          <strong>Шпон</strong>
+        </article>
+        <article class="card material-card reveal">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1000&q=80" alt="Ткани">
+          <strong>Ткани</strong>
+        </article>
+        <article class="card material-card reveal">
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80" alt="Индивидуальные фактуры">
+          <strong>Фактуры под заказ</strong>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section" id="faq">
+  <section>
     <div class="container">
-      <div class="section-kicker">FAQ</div>
-      <h2 class="section-title">Частые вопросы клиентов</h2>
+      <div class="section-head reveal">
+        <div>
+          <h2>Преимущества</h2>
+          <p>Акценты, которые усиливают доверие и помогают продавать: премиальность, кастомизация, работа со сложными материалами и визуальный уровень.</p>
+        </div>
+      </div>
 
-      <div style="margin-top:26px; display:grid; gap:14px;">
-        <div class="card faq-item">
-          <h3>Можно ли изменить размер, форму и материал?</h3>
-          <p class="muted">Да. Мы как раз специализируемся на индивидуальном изготовлении под ваши параметры и предпочтения.</p>
-        </div>
-        <div class="card faq-item">
-          <h3>Вы действительно работаете с мрамором?</h3>
-          <p class="muted">Да. Это одно из наших ключевых преимуществ. Мы работаем как с мрамором, так и с другими премиальными поверхностями.</p>
-        </div>
-        <div class="card faq-item">
-          <h3>Какие сроки изготовления?</h3>
-          <p class="muted">Базовый ориентир — от 7 дней. Срок зависит от сложности модели, материала и объема заказа.</p>
-        </div>
+      <div class="advantages-grid">
+        <article class="card reveal">
+          <div class="adv-number">01</div>
+          <h3>Работаем с мрамором</h3>
+          <p>Это одно из ключевых преимуществ бренда. Мы предлагаем материалы, с которыми работают не все производители.</p>
+        </article>
+        <article class="card reveal">
+          <div class="adv-number">02</div>
+          <h3>Кастомизация</h3>
+          <p>Подбираем размер, форму, оттенок, опоры, фактуру и ткань под конкретный интерьер и задачу клиента.</p>
+        </article>
+        <article class="card reveal">
+          <div class="adv-number">03</div>
+          <h3>Премиальная подача</h3>
+          <p>Сильная визуальная упаковка сайта помогает продавать не только мебель, но и ощущение статуса и вкуса.</p>
+        </article>
+        <article class="card reveal">
+          <div class="adv-number">04</div>
+          <h3>Удобство заявки</h3>
+          <p>Клиент может сразу написать в WhatsApp или оставить заявку через форму без лишних шагов.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="section alt">
-    <div class="container grid-2">
-      <div class="card">
-        <div class="section-kicker">Корзина / подбор</div>
-        <h2 class="section-title">Добавьте понравившиеся модели и обсудите заказ</h2>
-        <div class="cart-list" id="cartList">
-          <div class="empty">Пока ничего не выбрано. Добавьте модели из каталога, чтобы обсудить заказ с менеджером.</div>
-        </div>
-        <div class="total-row">
-          <span class="muted">Ориентировочная сумма</span>
-          <strong id="cartTotal">0 ₸</strong>
-        </div>
-        <button class="btn btn-primary" style="width:100%; margin-top:18px;">Запросить расчет</button>
-      </div>
-
-      <div class="card" id="contacts">
-        <div class="section-kicker">Контакты</div>
-        <h2 class="section-title">Быстрая связь с нами</h2>
-        <p class="section-subtitle">Сайт должен помогать клиенту не потеряться, а быстро перейти к консультации и оформлению индивидуального заказа.</p>
-
-        <div class="grid-2">
-          <div class="contact-box">
-            <strong>+7 (700) 000-00-00</strong>
-            <p>Астана, производство и шоурум</p>
-            <p>Ежедневно 10:00–20:00</p>
-          </div>
-          <div class="contact-box">
-            <strong>Что вы получите</strong>
-            <p>Консультацию по материалам</p>
-            <p>Подбор формы и размеров</p>
-            <p>Расчет стоимости и сроков</p>
-          </div>
-        </div>
-
-        <div class="hero-actions" style="margin-top:22px;">
-          <a class="btn btn-primary" href="#request">Оставить заявку</a>
-          <a class="btn btn-outline" href="#">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="request">
+  <section id="reviews">
     <div class="container">
-      <div class="card">
-        <div class="section-kicker">Заявка</div>
-        <h2 class="section-title">Расскажите, какую мебель вы хотите</h2>
-        <p class="section-subtitle">Оставьте описание, и менеджер свяжется с вами для консультации и расчета.</p>
-
-        <div class="grid-2">
-          <div>
-            <input class="input" type="text" placeholder="Ваше имя" />
-          </div>
-          <div>
-            <input class="input" type="text" placeholder="Телефон или WhatsApp" />
-          </div>
-          <div>
-            <select class="select">
-              <option>Что хотите заказать?</option>
-              <option>Стол</option>
-              <option>Стулья</option>
-              <option>Комплект</option>
-            </select>
-          </div>
-          <div>
-            <select class="select">
-              <option>Материал</option>
-              <option>Мрамор</option>
-              <option>Искусственный камень</option>
-              <option>Керамогранит</option>
-              <option>Pietra di Mebel</option>
-            </select>
-          </div>
+      <div class="section-head reveal">
+        <div>
+          <h2>Отзывы</h2>
+          <p>Пока здесь временный контент. Позже можно заменить на реальные отзывы клиентов, фото проектов и ссылки на Instagram.</p>
         </div>
+      </div>
 
-        <div style="margin-top:16px;">
-          <textarea class="textarea" placeholder="Опишите желаемые размеры, форму, цвет, стиль или отправьте идею для вашего заказа"></textarea>
+      <div class="review-grid">
+        <article class="card reveal">
+          <div class="stars">★★★★★</div>
+          <p>Очень понравилось качество исполнения и то, как команда помогла подобрать материал под интерьер. Стол выглядит дорого и стал главным акцентом комнаты.</p>
+          <div class="review-author">Алина, дизайн-проект квартиры</div>
+        </article>
+        <article class="card reveal">
+          <div class="stars">★★★★★</div>
+          <p>Искали мебель, которая выглядела бы нестандартно и статусно. В итоге заказали комплект стола и стульев. Получилось даже лучше, чем ожидали.</p>
+          <div class="review-author">Ермек, частный дом</div>
+        </article>
+        <article class="card reveal">
+          <div class="stars">★★★★★</div>
+          <p>Понравился подход: быстро ответили, предложили варианты камня и ткани, помогли определиться с размерами. Сайт тоже очень удобный.</p>
+          <div class="review-author">Диана, клиент</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <h2>FAQ</h2>
+          <p>Ответы на частые вопросы помогают быстрее закрывать сомнения клиента и повышают конверсию в заявку.</p>
         </div>
+      </div>
 
-        <div class="hero-actions" style="margin-top:18px;">
-          <button class="btn btn-primary">Отправить заявку</button>
-          <button class="btn btn-outline">Написать в Telegram</button>
+      <div class="faq-grid">
+        <div class="faq-item reveal">
+          <details>
+            <summary>Можно ли изменить размер и форму стола?</summary>
+            <p>Да. Мы можем адаптировать модель под ваш проект: изменить длину, ширину, форму столешницы и параметры основания.</p>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Какие материалы доступны?</summary>
+            <p>Доступны мрамор, керамогранит, шпон, различные ткани и другие материалы в зависимости от выбранной модели.</p>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Сколько занимает изготовление?</summary>
+            <p>Некоторые модели могут быть готовы от 7 дней. Точный срок зависит от сложности конструкции, наличия материала и объёма заказа.</p>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Можно ли заказать комплект под интерьер?</summary>
+            <p>Да. Мы можем подобрать стол, стулья и материалы в единой стилистике, чтобы пространство выглядело целостно и дорого.</p>
+          </details>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <section id="contacts">
+    <div class="container">
+      <div class="contact-banner reveal">
+        <div>
+          <h3>Готовы обсудить ваш проект?</h3>
+          <p>Оставьте заявку или напишите в WhatsApp — поможем подобрать мебель и материалы под ваш интерьер.</p>
+        </div>
+        <a class="btn btn-primary" href="https://wa.me/77000000000" target="_blank">Написать в WhatsApp</a>
+      </div>
+
+      <div class="contacts-grid">
+        <div class="card reveal">
+          <h3>Контакты</h3>
+          <p>Заполни позже своими реальными данными. Сейчас я оставил аккуратные заглушки, чтобы структура была готова.</p>
+          <div class="contact-list">
+            <div class="contact-row"><span>Телефон</span><strong>+7 (700) 000-00-00</strong></div>
+            <div class="contact-row"><span>WhatsApp</span><strong>+7 (700) 000-00-00</strong></div>
+            <div class="contact-row"><span>Instagram</span><strong>@pietradimebel</strong></div>
+            <div class="contact-row"><span>Время работы</span><strong>Пн–Сб, 10:00–19:00</strong></div>
+          </div>
+        </div>
+
+        <div class="card reveal" id="request">
+          <h3>Форма заявки</h3>
+          <p>Эта форма уже встроена в дизайн. Потом можно подключить отправку на почту, Telegram или CRM.</p>
+          <form class="form-grid">
+            <div class="row">
+              <input type="text" placeholder="Ваше имя" />
+              <input type="tel" placeholder="Телефон" />
+            </div>
+            <div class="row">
+              <select>
+                <option>Категория</option>
+                <option>Стол</option>
+                <option>Стулья</option>
+                <option>Комплект</option>
+                <option>Материалы</option>
+              </select>
+              <input type="text" placeholder="Удобный способ связи" />
+            </div>
+            <textarea placeholder="Опишите, что вы хотите: модель, размер, цвет, материал, примерный бюджет"></textarea>
+            <button class="btn btn-primary" type="button">Отправить заявку</button>
+            <div class="note">Нажимая на кнопку, клиент соглашается на обработку данных.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
     <div class="container footer-inner">
-      <div>© 2026 ATELIER TABLE & CHAIR</div>
-      <div class="footer-links">
-        <span>Индивидуальное производство</span>
-        <span>Материалы</span>
-        <span>Срок от 7 дней</span>
-        <span>Консультация</span>
-      </div>
+      <div>© 2026 Pietra di mebel. Premium furniture website.</div>
+      <div>Сделано в luxury dark style для продаж и заявок.</div>
     </div>
   </footer>
 
   <script>
-    const products = [
-      {
-        id: 1,
-        name: 'Nord Oak',
-        category: 'Столы',
-        price: 289000,
-        material: 'Мрамор',
-        color: 'Светлый камень',
-        style: 'Современный',
-        size: '160×90',
-        stock: 'Под заказ',
-        rating: 4.9,
-        description: 'Индивидуальный обеденный стол с премиальной столешницей.',
-        care: 'Подбор ухода зависит от выбранного камня.',
-        tags: ['Индивидуально', 'Мрамор'],
-        image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 2,
-        name: 'Linea Stone',
-        category: 'Столы',
-        price: 349000,
-        material: 'Керамогранит',
-        color: 'Белый',
-        style: 'Премиум',
-        size: '180×95',
-        stock: 'Под заказ',
-        rating: 4.8,
-        description: 'Стол для современного интерьера с возможностью адаптации по параметрам.',
-        care: 'Легко очищается и подходит для активного использования.',
-        tags: ['Керамогранит', 'На заказ'],
-        image: 'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 3,
-        name: 'Milo Soft',
-        category: 'Стулья',
-        price: 69000,
-        material: 'Шпон Pietra di Mebel',
-        color: 'Бежевый',
-        style: 'Сканди',
-        size: '52×58×84',
-        stock: 'Под заказ',
-        rating: 4.9,
-        description: 'Стул с мягкой посадкой, который можно адаптировать под проект клиента.',
-        care: 'Рекомендации подбираются по отделке.',
-        tags: ['Стул на заказ', 'Премиум'],
-        image: 'https://images.unsplash.com/photo-1503602642458-232111445657?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 4,
-        name: 'Forma Black',
-        category: 'Стулья',
-        price: 79000,
-        material: 'Искусственный камень',
-        color: 'Темный',
-        style: 'Минимализм',
-        size: '50×56×82',
-        stock: 'Под заказ',
-        rating: 4.7,
-        description: 'Современный стул с возможностью выбора цвета, ткани и пропорций.',
-        care: 'Индивидуальный уход зависит от выбранной отделки.',
-        tags: ['Минимализм', 'На заказ'],
-        image: 'https://images.unsplash.com/photo-1519947486511-46149fa0a254?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 5,
-        name: 'Urban Round',
-        category: 'Столы',
-        price: 259000,
-        material: 'Искусственный камень',
-        color: 'Песочный',
-        style: 'Лофт',
-        size: 'Ø120',
-        stock: 'Под заказ',
-        rating: 4.6,
-        description: 'Круглый стол для компактных пространств с гибкой настройкой размеров.',
-        care: 'Практичный материал для ежедневного использования.',
-        tags: ['Компактный', 'Под ваш размер'],
-        image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80'
-      },
-      {
-        id: 6,
-        name: 'Aura Sand',
-        category: 'Стулья',
-        price: 74000,
-        material: 'Шпон Pietra di Mebel',
-        color: 'Песочный',
-        style: 'Современный',
-        size: '54×60×86',
-        stock: 'Под заказ',
-        rating: 4.8,
-        description: 'Акцентный стул в современном стиле с персонализацией под интерьер клиента.',
-        care: 'Уход зависит от выбранной ткани и покрытия.',
-        tags: ['Новинка', 'Индивидуально'],
-        image: 'https://images.unsplash.com/photo-1549187774-b4e9b0445b41?auto=format&fit=crop&w=1200&q=80'
-      }
-    ];
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const products = document.querySelectorAll('.product-card');
 
-    const state = {
-      cart: [],
-      compare: [],
-      search: '',
-      category: 'Все',
-      material: 'Все',
-      style: 'Все'
-    };
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-    const productsGrid = document.getElementById('productsGrid');
-    const cartList = document.getElementById('cartList');
-    const compareList = document.getElementById('compareList');
-    const cartCount = document.getElementById('cartCount');
-    const cartTotal = document.getElementById('cartTotal');
-    const foundCount = document.getElementById('foundCount');
-    const materialFilter = document.getElementById('materialFilter');
-    const styleFilter = document.getElementById('styleFilter');
+        const filter = button.dataset.filter;
 
-    function formatPrice(value) {
-      return new Intl.NumberFormat('ru-RU').format(value) + ' ₸';
-    }
-
-    function fillDynamicFilters() {
-      const materials = ['Все', ...new Set(products.map(p => p.material))];
-      const styles = ['Все', ...new Set(products.map(p => p.style))];
-      materialFilter.innerHTML = materials.map(m => `<option value="${m}">${m}</option>`).join('');
-      styleFilter.innerHTML = styles.map(s => `<option value="${s}">${s}</option>`).join('');
-    }
-
-    function getFilteredProducts() {
-      return products.filter(p => {
-        const matchSearch = (p.name + ' ' + p.description + ' ' + p.tags.join(' ')).toLowerCase().includes(state.search.toLowerCase());
-        const matchCategory = state.category === 'Все' || p.category === state.category;
-        const matchMaterial = state.material === 'Все' || p.material === state.material;
-        const matchStyle = state.style === 'Все' || p.style === state.style;
-        return matchSearch && matchCategory && matchMaterial && matchStyle;
+        products.forEach(product => {
+          const categories = product.dataset.category;
+          const show = filter === 'all' || categories.includes(filter);
+          product.style.display = show ? 'flex' : 'none';
+        });
       });
-    }
+    });
 
-    function renderProducts() {
-      const filtered = getFilteredProducts();
-      foundCount.textContent = filtered.length;
-      productsGrid.innerHTML = filtered.map(product => {
-        const inCompare = state.compare.some(item => item.id === product.id);
-        return `
-          <article class="card product-card">
-            <img class="product-image" src="${product.image}" alt="${product.name}">
-            <div class="product-body">
-              <div class="product-top">
-                <div>
-                  <div class="muted-2" style="font-size:14px;">${product.category}</div>
-                  <h3 style="margin:6px 0 0; font-size:28px;">${product.name}</h3>
-                </div>
-                <span class="stock ${product.stock === 'В наличии' ? 'in' : 'order'}">${product.stock}</span>
-              </div>
-
-              <p class="muted" style="margin-top:12px;">${product.description}</p>
-              <div class="tags">${product.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}</div>
-
-              <div class="specs">
-                <div>Материал: <strong style="color:#2b2b2b;">${product.material}</strong></div>
-                <div>Размер: <strong style="color:#2b2b2b;">${product.size}</strong></div>
-                <div>Цвет: <strong style="color:#2b2b2b;">${product.color}</strong></div>
-                <div>Стиль: <strong style="color:#2b2b2b;">${product.style}</strong></div>
-              </div>
-
-              <div class="muted" style="margin-top:14px; font-size:14px;">★ ${product.rating} · ${product.care}</div>
-
-              <div class="row-between" style="margin-top:18px; align-items:center;">
-                <div class="price">${formatPrice(product.price)}</div>
-              </div>
-
-              <div class="product-actions">
-                <button class="btn btn-outline" onclick="toggleCompare(${product.id})">${inCompare ? 'Убрать из сравнения' : 'Сравнить'}</button>
-                <button class="btn btn-primary" onclick="addToCart(${product.id})">Добавить</button>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join('');
-    }
-
-    function addToCart(productId) {
-      const product = products.find(p => p.id === productId);
-      if (!product) return;
-      state.cart.push(product);
-      renderCart();
-    }
-
-    function removeFromCart(index) {
-      state.cart.splice(index, 1);
-      renderCart();
-    }
-
-    function renderCart() {
-      cartCount.textContent = state.cart.length;
-      if (state.cart.length === 0) {
-        cartList.innerHTML = '<div class="empty">Пока ничего не выбрано. Добавьте модели из каталога, чтобы обсудить заказ с менеджером.</div>';
-      } else {
-        cartList.innerHTML = state.cart.map((item, index) => `
-          <div class="cart-item">
-            <div class="row-between" style="align-items:center;">
-              <div>
-                <strong>${item.name}</strong>
-                <div class="muted" style="font-size:14px; margin-top:4px;">${item.category} · ${item.size}</div>
-              </div>
-              <div style="display:flex; align-items:center; gap:10px;">
-                <span class="muted">${formatPrice(item.price)}</span>
-                <button class="btn btn-outline" style="padding:10px 12px;" onclick="removeFromCart(${index})">✕</button>
-              </div>
-            </div>
-          </div>
-        `).join('');
-      }
-      const total = state.cart.reduce((sum, item) => sum + item.price, 0);
-      cartTotal.textContent = formatPrice(total);
-    }
-
-    function toggleCompare(productId) {
-      const exists = state.compare.find(item => item.id === productId);
-      if (exists) {
-        state.compare = state.compare.filter(item => item.id !== productId);
-      } else {
-        if (state.compare.length >= 3) {
-          alert('Можно сравнить максимум 3 модели');
-          return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
-        const product = products.find(p => p.id === productId);
-        if (product) state.compare.push(product);
-      }
-      renderCompare();
-      renderProducts();
-    }
+      });
+    }, { threshold: 0.14 });
 
-    function renderCompare() {
-      if (state.compare.length === 0) {
-        compareList.innerHTML = '<div class="empty">Выберите товары в каталоге, чтобы увидеть сравнение по цене, материалу, стилю и размеру.</div>';
-        return;
-      }
-
-      compareList.innerHTML = state.compare.map(item => `
-        <div class="compare-item">
-          <div class="row-between">
-            <div>
-              <strong>${item.name}</strong>
-              <div class="muted" style="margin-top:6px; font-size:14px;">
-                ${item.material} · ${item.style} · ${item.size}
-              </div>
-            </div>
-            <div class="muted">${formatPrice(item.price)}</div>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function updateRecommendation() {
-      const roomArea = Number(document.getElementById('roomArea').value);
-      const seatCount = Number(document.getElementById('seatCount').value);
-      const box = document.getElementById('sizeRecommendation');
-
-      if (!roomArea || !seatCount) {
-        box.textContent = 'Заполните поля, чтобы получить рекомендацию по размеру и формату стола.';
-        return;
-      }
-
-      if (roomArea < 12 && seatCount <= 4) {
-        box.textContent = 'Для вашей комнаты подойдут компактные модели: круглый стол до 120 см или прямоугольный стол до 140 см.';
-      } else if (roomArea < 18 && seatCount <= 6) {
-        box.textContent = 'Оптимальный вариант: стол 140–160 см и 4–6 посадочных мест. Можно рассмотреть мрамор или керамогранит.';
-      } else {
-        box.textContent = 'У вас достаточно пространства для крупного стола 160–180 см и 6–8 посадочных мест с акцентными стульями.';
-      }
-    }
-
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-      state.search = e.target.value;
-      renderProducts();
-    });
-
-    document.getElementById('categoryFilter').addEventListener('change', (e) => {
-      state.category = e.target.value;
-      renderProducts();
-    });
-
-    materialFilter.addEventListener('change', (e) => {
-      state.material = e.target.value;
-      renderProducts();
-    });
-
-    styleFilter.addEventListener('change', (e) => {
-      state.style = e.target.value;
-      renderProducts();
-    });
-
-    document.getElementById('roomArea').addEventListener('input', updateRecommendation);
-    document.getElementById('seatCount').addEventListener('input', updateRecommendation);
-    document.getElementById('cartOpenBtn').addEventListener('click', () => {
-      document.getElementById('cartList').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-
-    fillDynamicFilters();
-    renderProducts();
-    renderCart();
-    renderCompare();
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
